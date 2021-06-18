@@ -1,11 +1,21 @@
+const Course = require('../models/Course')
+
 class SiteController {
 
     // [GET] /
     index(req, res) {
-        res.render('home')
+
+        Course.find({}, function(err, courses) {
+            if (!err) {
+                res.json(courses)
+                return
+            }
+            res.status(400).json({ error: 'ERROR' })
+        })
+
+        // res.render('home')
     }
 
 }
 
-// Exports cái gì thì khi require sẽ nhận được cái đó
 module.exports = new SiteController
