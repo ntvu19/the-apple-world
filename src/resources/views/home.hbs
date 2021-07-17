@@ -1,17 +1,105 @@
-<div class="mt-4">
-    <div class="row">
-
-        {{#each courses}}
-        <div class="col-sm-6 col-lg-4">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.name}}</h5>
-                    <p class="card-text">{{this.description}}</p>
-                    <a href="/courses/{{this.slug}}" class="btn btn-primary">Go somewhere</a>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="grid">
+                <div class="slider">
+                    <div class="slider__container">
+                        <div class="slider__container-item">
+                            <img src="./img/slide/slide1.png" class="slide" stt="0">
+                            <img src="./img/slide/slide2.png" class="slide" stt="1" style="display: none;">
+                            <a href="#" id="prev"><i class="far fa-arrow-alt-circle-left"></i></a>
+                            <a href="#" id="next"><i class="far fa-arrow-alt-circle-right"></i></a>
+                        </div>
+                        <img src="./img/2191148_edited.webp" class="slider__container-img-right">
+                    </div>
                 </div>
+
+                <h2 style="text-align: center; font-size: 3rem;">Shop by Category</h2>
+                <div class="card-deck mt-4">
+                    <div class="card" onclick="window.location='/macbook';" style="cursor:pointer">
+                        <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/44/231255/apple-macbook-pro-2020-z11c-3-600x600.jpg" style="height:200px; width:200px; margin-left:auto; margin-right:auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">MacBook</h5>
+                        </div>
+                    </div>
+                    <div class="card" onclick="window.location='/iphone';" style="cursor:pointer">
+                        <img class="card-img-top text-center" src="https://cdn.tgdd.vn/Products/Images/42/213033/TimerThumb/iphone-12-pro-max-(4).jpg" style="height:200px; width:200px; margin-left:auto; margin-right:auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">iPhone</h5>
+                        </div>
+                    </div>
+                    <div class="card" onclick="window.location='/tablet';" style="cursor:pointer">
+                        <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/522/238651/ipad-pro-2021-129-inch-silver-600x600.jpg" style="height:200px; width:200px; margin-left:auto; margin-right:auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Tablet</h5>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card-deck mt-4">
+                    <div class="card" onclick="window.location='/imac';" style="cursor:pointer">
+                        <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/5698/238054/imac-24-inch-45k-retina-m1-mgph3saa-600x600.jpg" style="height:200px; width:200px; margin-left:auto; margin-right:auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">iMac</h5>
+                        </div>
+                    </div>
+                    <div class="card" onclick="window.location='/apple-watch';" style="cursor:pointer">
+                        <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/7077/212770/apple-watch-s5-44mm-vien-nhom-day-cao-su-01-600x600.jpg" style="height:200px; width:200px; margin-left:auto; margin-right:auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Apple Watch</h5>
+                        </div>
+                    </div>
+                    <div class="card" onclick="window.location='/airpod';" style="cursor:pointer">
+                        <img class="card-img-top" src="https://cdn.tgdd.vn/Products/Images/54/236331/bluetooth-airpods-max-apple-ava-600x600.jpg" style="height:200px; width:200px; margin-left:auto; margin-right:auto">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">AirPod</h5>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                {{!-- <div class="shop__category">
+                    <div class="shop__category-container">
+                        <a href="">
+                            <img src="https://cdn.tgdd.vn/Products/Images/44/231255/apple-macbook-pro-2020-z11c-3-600x600.jpg" style="height:200px; width:200px">
+                        </a>
+                        <a href="/iphone">
+                            <img src="https://cdn.tgdd.vn/Products/Images/42/213033/TimerThumb/iphone-12-pro-max-(4).jpg" style="height:200px; width:200px">
+                        </a>
+                        <a href="/tablet">
+                            <img src="https://cdn.tgdd.vn/Products/Images/522/238651/ipad-pro-2021-129-inch-silver-600x600.jpg" style="height:200px; width:200px">
+                        </a>
+                    </div>
+                    <div class="shop__category-container">
+                        <a href="/imac">
+                            <img src="https://cdn.tgdd.vn/Products/Images/5698/238054/imac-24-inch-45k-retina-m1-mgph3saa-600x600.jpg" alt="Computers" style="height:200px; width:200px">
+                        </a>
+                        <a href="/apple-watch">
+                            <img src="https://cdn.tgdd.vn/Products/Images/7077/212770/apple-watch-s5-44mm-vien-nhom-day-cao-su-01-600x600.jpg" alt="Computers" style="height:200px; width:200px">
+                        </a>
+                        <a href="/air-pod">
+                            <img src="https://cdn.tgdd.vn/Products/Images/54/236331/bluetooth-airpods-max-apple-ava-600x600.jpg" alt="Computers" style="height:200px; width:200px">
+                        </a>
+                    </div>
+                </div> --}}
+                <div class="help-center">
+                    <div class="help-center__container">
+                        <div class="help-center__text">
+                            <p style="font-size: 3rem; font-weight: 500; color: #fff;">Need Help?</p>
+                            <p style="font-size: 3rem;  font-weight: 500;color: #fff;">Check Out Our Help Center</p>
+                            <p style="font-size: 1.5rem;color: #fff;">I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.</p>
+                        </div>
+                        <a id="help-center__btn" href="./helpCenter.html">
+                        <span id="help-center__btn-text">
+                            Go to Help Center
+                        </span>
+                                
+                        </a>
+                    </div>
+                    <div class="help-center__container">
+                        <img src="./img/c22c23_de5cbbefa9104fc1a1604ea146ea523a_mv2.webp" style="width:600px; height:450px;">
+                    </div>
+                </div>
+                
             </div>
         </div>
-        {{/each}}
-        
-    </div>
-</div>
+    </div>    
+</body>

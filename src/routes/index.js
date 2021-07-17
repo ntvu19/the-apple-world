@@ -1,5 +1,6 @@
 const newsRouter = require('./news')
-const siteRouter = require('./site')
+const homeRouter = require('./home.route')
+const iphoneRouter = require('./iphone.route')
 const coursesRouter = require('./courses')
 const cartRouter = require('./cart')
 const productRouter = require('./product')
@@ -12,7 +13,9 @@ function route(app) {
     app.use('/news', newsRouter)
     app.use('/me', meRouter)
     app.use('/courses', coursesRouter)
-    app.use('/', siteRouter)
+
+    app.use('/iphone', iphoneRouter)
+    app.use('/', homeRouter)
 
 }
 
