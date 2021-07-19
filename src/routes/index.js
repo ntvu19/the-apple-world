@@ -1,19 +1,26 @@
-const newsRouter = require('./news')
 const homeRouter = require('./home.route')
 const iphoneRouter = require('./iphone.route')
+const tabletRouter = require('./tablet.route')
+const macbookRouter = require('./macbook.route')
+const imacRouter = require('./imac.route')
+const applewatchRouter = require('./applewatch.route')
+const airpodRouter = require('./airpod.route')
+const adminRouter = require('./admin.route')
+
 const coursesRouter = require('./courses')
-const cartRouter = require('./cart')
-const productRouter = require('./product')
 const meRouter = require('./me')
 
 function route(app) {
 
-    app.use('/cart', cartRouter)
-    app.use('/product', productRouter)
-    app.use('/news', newsRouter)
     app.use('/me', meRouter)
     app.use('/courses', coursesRouter)
 
+    app.use('/admin', adminRouter)
+    app.use('/airpod', airpodRouter)
+    app.use('/apple-watch', applewatchRouter)
+    app.use('/imac', imacRouter)
+    app.use('/macbook', macbookRouter)
+    app.use('/tablet', tabletRouter)
     app.use('/iphone', iphoneRouter)
     app.use('/', homeRouter)
 

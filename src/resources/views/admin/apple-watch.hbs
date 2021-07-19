@@ -1,0 +1,43 @@
+<div class="table-responsive text-nowrap mt-4">
+    <h1>Quản lí Apple Watch</h1>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Tên thiết bị</th>
+                <th scope="col">Mô tả</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Đường dẫn</th>
+                <th scope="col">Màn hình</th>
+                <th scope="col">Hệ điều hành</th>
+                <th scope="col" colspan="2">Chức năng</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {{#each applewatches}}
+            <tr>
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.price}}</td>
+                <td>{{this.img}}</td>
+                <td>{{this.monitor}}</td>
+                <td>{{this.os}}</td>
+                <td>{{this.feature}}</td>
+                <td>
+                    <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                    <a href="" class="btn btn-link" data-id="{{this._id}}" data-toggle="modal" data-target="#delete-course-modal">Xoá</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<!-- Floating Action Button like Google Material -->
+<div class="menu pmd-floating-action"  role="navigation"> 
+	<a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary" data-title="Thêm sản phẩm" href="javascript:void(0);"> 
+		<i class="material-icons pmd-sm">add</i> 
+	</a>
+</div>
