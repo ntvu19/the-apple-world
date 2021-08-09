@@ -9,38 +9,131 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
-
     <!-- CSS -->
     <style>
-        {{!-- Sau này chuyển vào file css riêng --}}
         /* Propeller typography */
         @import "https://opensource.propeller.in/components/typography/css/typography.css";
+
         /* Propeller button */
         @import "https://opensource.propeller.in/components/button/css/button.css";
+
         /* Propeller icons */
         @import "https://fonts.googleapis.com/icon?family=Material+Icons";
         @import "https://opensource.propeller.in/components/icons/css/google-icons.css";
-        /* Propeller css for Floating Action Button*/
-        .pmd-floating-action { bottom: 0; position: fixed;  margin:1em;  right: 0; }
-        .pmd-floating-action-btn { display:block; position: relative; transition: all .2s ease-out;}
-        .pmd-floating-action-btn:before { bottom: 10%; content: attr(data-title); opacity: 0; position: absolute; right: 100%; transition: all .2s ease-out .5s;  white-space: nowrap; background-color:#fff; padding:6px 12px; border-radius:2px; color:#333; font-size:12px; margin-right:5px; display:inline-block; box-shadow: 0px 2px 3px -2px rgba(0, 0, 0, 0.18), 0px 2px 2px -7px rgba(0, 0, 0, 0.15);}
-        .pmd-floating-action-btn:last-child:before { font-size: 14px; bottom: 25%;}
-        .pmd-floating-action-btn:active, .pmd-floating-action-btn:focus, .pmd-floating-action-btn:hover {box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15);}
-        .pmd-floating-action-btn:not(:last-child){ opacity: 0; -ms-transform: translateY(20px) scale(0.3); transform: translateY(20px) scale(0.3); margin-bottom:15px; margin-left:8px; position:absolute; bottom:0;}
-        .pmd-floating-action-btn:not(:last-child):nth-last-child(1) { transition-delay: 50ms;}
-        .pmd-floating-action-btn:not(:last-child):nth-last-child(2) { transition-delay: 100ms;}
-        .pmd-floating-action-btn:not(:last-child):nth-last-child(3) { transition-delay: 150ms;}
-        .pmd-floating-action-btn:not(:last-child):nth-last-child(4) { transition-delay: 200ms;}
-        .pmd-floating-action-btn:not(:last-child):nth-last-child(5) { transition-delay: 250ms;}
-        .pmd-floating-action-btn:not(:last-child):nth-last-child(6) { transition-delay: 300ms;}
-        .pmd-floating-action:hover .pmd-floating-action-btn, .menu--floating--open .pmd-floating-action-btn { opacity: 1; -ms-transform: none; transform: none; position:relative; bottom:auto;}
-        .pmd-floating-action:hover .pmd-floating-action-btn:before, .menu--floating--open .pmd-floating-action-btn:before { opacity: 1;}
-        .pmd-floating-hidden{ display:none;}
-        .pmd-floating-action-btn.btn:hover{ overflow:visible;}
 
-        .pmd-floating-action-btn .ink{ width:50px; height:50px;}
+        /* Propeller list */
+        @import "https://opensource.propeller.in/components/list/css/list.css";
+
+        /* Propeller textfield */
+        @import "https://opensource.propeller.in/components/textfield/css/textfield.css";
+        
+        /* Propeller css for Floating Action Button*/
+        .pmd-floating-action {
+            bottom: 0;
+            position: fixed;
+            margin: 1em;
+            right: 0;
+        }
+
+        .pmd-floating-action-btn {
+            display: block;
+            position: relative;
+            transition: all .2s ease-out;
+        }
+
+        .pmd-floating-action-btn:before {
+            bottom: 10%;
+            content: attr(data-title);
+            opacity: 0;
+            position: absolute;
+            right: 100%;
+            transition: all .2s ease-out .5s;
+            white-space: nowrap;
+            background-color: #fff;
+            padding: 6px 12px;
+            border-radius: 2px;
+            color: #333;
+            font-size: 12px;
+            margin-right: 5px;
+            display: inline-block;
+            box-shadow: 0px 2px 3px -2px rgba(0, 0, 0, 0.18), 0px 2px 2px -7px rgba(0, 0, 0, 0.15);
+        }
+
+        .pmd-floating-action-btn:last-child:before {
+            font-size: 14px;
+            bottom: 25%;
+        }
+
+        .pmd-floating-action-btn:active,
+        .pmd-floating-action-btn:focus,
+        .pmd-floating-action-btn:hover {
+            box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15);
+        }
+
+        .pmd-floating-action-btn:not(:last-child) {
+            opacity: 0;
+            -ms-transform: translateY(20px) scale(0.3);
+            transform: translateY(20px) scale(0.3);
+            margin-bottom: 15px;
+            margin-left: 8px;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .pmd-floating-action-btn:not(:last-child):nth-last-child(1) {
+            transition-delay: 50ms;
+        }
+
+        .pmd-floating-action-btn:not(:last-child):nth-last-child(2) {
+            transition-delay: 100ms;
+        }
+
+        .pmd-floating-action-btn:not(:last-child):nth-last-child(3) {
+            transition-delay: 150ms;
+        }
+
+        .pmd-floating-action-btn:not(:last-child):nth-last-child(4) {
+            transition-delay: 200ms;
+        }
+
+        .pmd-floating-action-btn:not(:last-child):nth-last-child(5) {
+            transition-delay: 250ms;
+        }
+
+        .pmd-floating-action-btn:not(:last-child):nth-last-child(6) {
+            transition-delay: 300ms;
+        }
+
+        .pmd-floating-action:hover .pmd-floating-action-btn,
+        .menu--floating--open .pmd-floating-action-btn {
+            opacity: 1;
+            -ms-transform: none;
+            transform: none;
+            position: relative;
+            bottom: auto;
+        }
+
+        .pmd-floating-action:hover .pmd-floating-action-btn:before,
+        .menu--floating--open .pmd-floating-action-btn:before {
+            opacity: 1;
+        }
+
+        .pmd-floating-hidden {
+            display: none;
+        }
+
+        .pmd-floating-action-btn.btn:hover {
+            overflow: visible;
+        }
+
+        .pmd-floating-action-btn .ink {
+            width: 50px;
+            height: 50px;
+        }
     </style>
     
+    {{!-- <link rel="stylesheet" href="/src/public/css/animation.css"> --}}
+
     <title>The Apple World</title>
 </head>
 <body>
@@ -61,9 +154,12 @@
     <script src="https://opensource.propeller.in/components/global/js/global.js"></script>
     <!-- Propeller ripple effect js -->
     <script type="text/javascript" src="https://opensource.propeller.in/components/button/js/ripple-effect.js"></script>
+    <!-- Propeller textfield js -->
+    <script type="text/javascript" src="https://opensource.propeller.in/components/textfield/js/textfield.js"></script>
 
     <script>
-
+    
+        // Hide navbar (when login)
         document.addEventListener('DOMContentLoaded', function hideNavbar() {
             var path = window.location.pathname
             if (path.indexOf('admin') != -1) {
@@ -74,17 +170,127 @@
             }
         })
 
+        // Hide footer (when login)
         document.addEventListener('DOMContentLoaded', function hideFooter() {
             if (window.location.pathname.indexOf('admin') != -1) {
                 document.getElementsByTagName('footer')[0].style.display = 'none'
             }
         })
 
+        // Modify link
         document.addEventListener('DOMContentLoaded', function modifyLink() {
             if (window.location.pathname.indexOf('admin') != -1) {
                 var x = document.getElementsByClassName('menu')
                 for (i = 0; i < x.length; i++) {
                     x[i].href = '/admin' + x[i].pathname
+                }
+            }
+        })
+
+        // Show detail
+        document.addEventListener('DOMContentLoaded', function showDetail() {
+            var btnDetail = document.getElementsByClassName('btn-detail')
+            var listProduct = document.getElementsByClassName('show-detail')
+            // Button is clicked
+            for (let i = 0; i < btnDetail.length; i++) {
+                btnDetail[i].onclick = function() {                
+                    for (let j = 0; j < listProduct.length; j++) {
+                        listProduct[j].style.display = 'block'
+                        if (i != j) {
+                            listProduct[j].style.display = 'none'
+                        }
+                    }
+                }
+            }
+        })
+
+        // Show edit form
+        document.addEventListener('DOMContentLoaded', function showEditForm() {
+            var btnEdit = document.getElementsByClassName('btn-edit')
+            var listForm = document.getElementsByClassName('edit-form')
+            // Button is clicked
+            for (let i = 0; i < btnEdit.length; i++) {
+                btnEdit[i].onclick = function() {
+                    for (let j = 0; j < listForm.length; j++) {
+                        listForm[j].style.display = 'block'
+                        if (i != j) {
+                            listForm[j].style.display = 'none'
+                        }
+                    }
+                }
+            }
+        })
+
+        // Submit form
+        document.addEventListener('DOMContentLoaded', function submitForm() {
+            $('#btn-submit').click(function() {
+                $('#post-form').submit()
+            })
+        })
+
+        // Edit product
+        document.addEventListener('DOMContentLoaded', function editProduct() {
+            var btnSubmit = document.getElementsByClassName('btn-edit-form')
+            var formData = document.getElementsByClassName('data-edit-form')
+
+            // Button is clicked
+            for (let i = 0; i < btnSubmit.length; i++) {
+                btnSubmit[i].onclick = function() {                
+                    formData[i].submit()
+                }
+            }
+        })
+
+        // Delete product
+        document.addEventListener('DOMContentLoaded', function deleteProduct() {
+
+            var productId
+            var productCategory
+            var deleteForm = document.forms['delete-form']
+            var btnDelete = document.getElementById('btn-delete')
+
+            // When dialog confirm clicked
+            $('#delete-product-confirm').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                productId = button.data('id')
+                productCategory = button.data('category')
+            })
+            
+            btnDelete.onclick = function() {
+                deleteForm.action = '/admin/' + productCategory + '/' + productId + '?_method=DELETE'
+                deleteForm.submit()
+            }
+
+        })
+
+        // Add To Cart
+        document.addEventListener('DOMContentLoaded', function addToCart() {
+            var cart = new Array()
+            if (localStorage.getItem('cart') !== null) {
+                cart = JSON.parse(localStorage['cart'])
+            }
+            var btnAddToCart = $('.btn-add-to-cart')
+
+            for (let i = 0; i < btnAddToCart.length; i++) {
+                btnAddToCart[i].onclick = function() {
+                    if (cart.length < 10) {
+                        id = $(this).data('id')
+                        name = $(this).data('name')
+                        img = $(this).data('img')
+                        price = $(this).data('price')
+
+                        const info = {
+                            _id: id,
+                            name: name,
+                            img: img,
+                            price: price
+                        }
+                        cart.push(info)
+                        localStorage['cart'] = JSON.stringify(cart)
+                    }
+                    else {
+                        alert('Không được vượt quá 10 sản phẩm')
+                    }
                 }
             }
         })

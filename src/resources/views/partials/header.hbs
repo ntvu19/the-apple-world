@@ -17,21 +17,21 @@
     <!--Header with search-->
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
         <a class="" href="/">
-            <img src="https://lh5.googleusercontent.com/xtJGtSzLd-h1Mwq4y6yl0wgu_Tx9DkX0ST9VCJkYdhTkKuPjGvaOpvAXVDw5N-88TRV5bcMtU1aseamhusgY=w1920-h942" style="width: 180px; height: auto;">
+            <img src="https://lh3.googleusercontent.com/fife/AAWUweVvo7m_K3GErTi4Qf3NKvh2BqoQGg8_8pJ7GjiqVo67hAuzM3vkOEPIM7RuZSx9AyhNGbJgcI6YXiR84knm15rHn42wUjANDXVYXm5nYPsId-v4GIo6jFmHepwWv503cXpQLs5dAU_7cO5sSufBkrVigSVnVvfN6FvDr_xLy54avmE1BBjFkgBrk5vjzO-Y8Is_kjQECjSmEHSI3SJhi9ade-9uKAz3gO54WdHVKy6bV_RRKeSNTPOTH-CDiULuNTOS5Yo7ikeh-t8uRikqjL9N_dd45PmU7Eql7ehYj4vB6MdhOTP4LZHpQFp7ow_Of1UpAkT5beLXxuGLVNac6Pr8nCsEGL0rB5G0uJPCX86kdsqQZyDHz-yCqhmeugHSc5P5UUv3JXVyYT97CjxWl9eyPIHuqY-eqsxVQ2CSSgiy0rAcchKBAlijbTT5NcsAe4nwq5-iWgyqsVh-gceO8g3m3yGPv0bSJ23k7siro4CW06Prk-hYQimkXT6ja7FNBbHMzgcRicH1hSgWQ2yNKj3yhUiJ-5NJoGrEVSI2acoyHxbJdTii6a8XY6tgI-S4y9-MbmiPrB1vj_dP6Wk26G808w1cbOyT1CCFXPDjHelsVgKBU6LG44Kz3u_byOi7GLkBZjXVIi_sQs0O3nLjPlcl2T1EerFkqD5cksDh2e1KuUT6OWTUkG8W590-cX8bTg-1wuAIcrDEmhWTLR_XdnoA9-_bDNrOAw=w1920-h942-ft" style="width: 180px; height: auto;">
         </a>
         <form class="form-inline mr-auto ml-4">
             <input class="form-control mr-sm-2 col-md-8" type="search" placeholder="Bạn tìm gì..." aria-label="Search">
             <button class="btn btn-outline-success my-2 my-lg-0" type="submit">Tìm kiếm</button>
         </form>
         <div class="button-group">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phonenumber-search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"></path>
                     <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"></path>
                 </svg>
                 Lịch sử đặt hàng
             </button>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cart">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
                     <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
                 </svg>
@@ -65,3 +65,184 @@
     </ul>
 
 </header>
+
+<div tabindex="-1" class="modal fade" id="cart" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog" style="max-width:1200px;">
+		<div class="modal-content">
+      <div class="container h-100 py-4">
+        <div class="row d-flex justify-content-center my-4">
+          <div class="col-md-8">
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Giỏ hàng</h5>
+              </div>
+              <div class="card-body">
+                
+                {{!-- Lặp đoạn này --}}
+                <!-- Single item -->
+                <div class="row">
+                  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <!-- Image -->
+                    <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                      <img src="https://cdn.tgdd.vn/Products/Images/42/213032/iphone-12-pro-vang-1-org.jpg"
+                        class="w-100" />
+                      <a href="#!">
+                        <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                      </a>
+                    </div>
+                    <!-- Image -->
+                  </div>
+
+                  {{!-- Thông tin --}}
+                  <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 mt-4">
+                    <!-- Data -->
+                    <p><strong>iPhone 12 Pro</strong></p>
+                    <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                      title="Xoá khỏi giỏ hàng">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                    <!-- Data -->
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 mb-4 mb-lg-0 mt-4">
+                    <!-- Quantity -->
+                    <div class="d-flex mb-4" style="max-width: 300px">
+                      <button class="btn btn-primary px-3 me-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                        <i class="fas fa-minus"></i>
+                      </button>
+
+                      <div class="form-outline mx-1">
+                        <input id="form-quantity" min="0" name="quantity" value="1" type="number" class="form-control" />
+                      </div>
+
+                      <button class="btn btn-primary px-3 ms-2"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                    </div>
+                    <!-- Quantity -->
+
+                    <!-- Price -->
+                    <p class="text-start text-md-center">
+                      <strong>$17.99</strong>
+                    </p>
+                    <!-- Price -->
+                  </div>
+                </div>
+                <!-- Single item -->
+
+                {{!-- Đường kẻ ngang --}}
+                <hr class="my-4" />
+
+              </div>
+            </div>
+            <div class="card mb-4">
+              <div class="card-body">
+                <p><strong>Dự kiến giao hàng</strong></p>
+                <p class="mb-0">12.10.2020 - 14.10.2020</p>
+              </div>
+            </div>
+            {{!-- Phương thức thanh toán --}}
+            <div class="card mb-4 mb-lg-0">
+              <div class="card-body">
+                <p><strong>Phương thức thanh toán</strong></p>
+                <img class="me-2" width="45px"
+                  src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
+                  alt="Visa" />
+                <img class="me-2" width="45px"
+                  src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
+                  alt="American Express" />
+                <img class="me-2" width="45px"
+                  src="https://mdbootstrap.com/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
+                  alt="Mastercard" />
+                <img class="me-2" width="45px"
+                  src="https://mdbootstrap.com/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.png"
+                  alt="PayPal acceptance mark" />
+              </div>
+            </div>
+          </div>
+
+          {{!-- Thanh toán --}}
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-header py-3">
+                <h5 class="mb-0">Thanh toán</h5>
+              </div>
+              <div class="card-body">
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                    Sản phẩm
+                    <span>$53.98</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                    Vận chuyển
+                    <span>Miễn phí</span>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                    <div>
+                      <strong>Số tiền</strong>
+                      <strong>
+                        <p class="mb-0">(đã bao gồm VAT)</p>
+                      </strong>
+                    </div>
+                    <span><strong>$53.98</strong></span>
+                  </li>
+                </ul>
+
+                <button type="button" class="btn btn-primary btn-lg btn-block">
+                  Đặt hàng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+
+
+
+<div tabindex="-1" class="modal fade" id="phonenumber-search" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <div class="modal-header justify-content-center">
+          <strong>Tra cứu thông tin đơn hàng</strong><br>
+      </div>
+      <div class="container">
+        <div class="row d-flex justify-content-center my-4">
+          <div class="form-group pmd-textfield pmd-textfield-floating-label">
+            <label class="control-label pmd-input-group-label">Nhập số điện thoại mua hàng</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">phone</i></div>
+              <input type="text" class="form-control">
+              <button id="search-history-button" type="button" class="btn pmd-btn-outline btn-primary mx-auto mt-4" data-toggle="modal" data-target="#history">Tiếp tục</button>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+	</div>
+</div>
+
+<div tabindex="-1" class="modal fade" id="history" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+      <div class="modal-header justify-content-center">
+          <strong>Tra cứu thông tin đơn hàng</strong><br>
+      </div>
+      
+		</div>
+	</div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#search-history-button').click(function() {
+      $('#phonenumber-search').modal('hide')
+    })
+  })
+</script>

@@ -1,5 +1,5 @@
 const iPhone = require('../models/iphone.model')
-const { multipleMongooseToObject } = require('../../util/mongoose')
+const { mongooseToObject, multipleMongooseToObject } = require('../../util/mongoose')
 
 class iphoneController {
 
@@ -14,6 +14,13 @@ class iphoneController {
             })
             .catch(next)
 
+    }
+
+    // [GET]    /iphone/:id
+    details(req, res, next) {
+        iPhone.findById(req.params.id)
+            .then(iphone => res.json(mongooseToObject(iphone)))
+            .catch(next)
     }
 
 }

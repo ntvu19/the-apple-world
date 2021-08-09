@@ -8,12 +8,12 @@
                 <th scope="col">Mô tả</th>
                 <th scope="col">Giá</th>
                 <th scope="col">Đường dẫn</th>
+                <th scope="col">Màn hình</th>
                 <th scope="col">Hệ điều hành</th>
                 <th scope="col">CPU</th>
                 <th scope="col">GPU</th>
                 <th scope="col">RAM</th>
-                <th scope="col">ROM</th>
-                <th scope="col" colspan="2">Pin</th>
+                <th scope="col" colspan="2">ROM</th>
                 
             </tr>
         </thead>
@@ -25,15 +25,15 @@
                 <td>{{this.description}}</td>
                 <td>{{this.price}}</td>
                 <td>{{this.img}}</td>
+                <td>{{this.monitor}}</td>
                 <td>{{this.os}}</td>
                 <td>{{this.cpu}}</td>
                 <td>{{this.gpu}}</td>
                 <td>{{this.ram}}</td>
                 <td>{{this.rom}}</td>
-                <td>{{this.battery}}</td>
                 <td>
-                    <a href="/courses/{{this._id}}/edit" class="btn btn-link">Sửa</a>
-                    <a href="" class="btn btn-link" data-id="{{this._id}}" data-toggle="modal" data-target="#delete-course-modal">Xoá</a>
+                    <button class="btn btn-primary btn-edit" data-id="{{this._id}}" data-toggle="modal" data-target="#edit-form">Sửa</button>
+                    <button class="btn btn-default" data-category="imac" data-id="{{this._id}}" data-toggle="modal" data-target="#delete-product-confirm">Xoá</button>
                 </td>
             </tr>
             {{/each}}
@@ -43,7 +43,176 @@
 
 <!-- Floating Action Button like Google Material -->
 <div class="menu pmd-floating-action"  role="navigation"> 
-	<a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary" data-title="Thêm sản phẩm" href="javascript:void(0);"> 
+	<a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-primary" data-target="#create-form" data-toggle="modal" data-title="Thêm sản phẩm" href="javascript:void(0);">
 		<i class="material-icons pmd-sm">add</i> 
 	</a>
+</div>
+
+<!-- Edit Form -->
+<div tabindex="-1" class="modal fade" id="edit-form" style="display: none;" aria-hidden="true">
+    {{#each imacs}}
+	<div class="modal-dialog edit-form">
+		<div class="modal-content">
+			<div class="modal-header pmd-modal-bordered">
+				<h2 class="pmd-card-title-text">Thêm sản phẩm</h2>
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal data-edit-form" method="POST" action="/admin/imac/{{this._id}}?_method=PUT">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label>Tên thiết bị</label>
+						<input type="text" class="mat-input form-control" name="name" value="{{this.name}}">
+                    </div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label class="control-label">Mô tả</label>
+						<textarea class="form-control" name="description">{{this.description}}</textarea>
+					</div>
+
+                    <div class="row">
+                        <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Giá</label>
+                            <input type="text" class="mat-input form-control" name="price" value="{{this.price}}">
+                        </div>
+                        <div class="col-md-8 form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Đường dẫn</label>
+                            <input type="text" class="mat-input form-control" name="img" value="{{this.img}}">
+                        </div>
+                    </div>
+					
+                    <div class="row">
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Màn hình</label>
+                            <input type="text" class="mat-input form-control" name="monitor" value="{{this.monitor}}">
+                        </div>
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Hệ điều hành</label>
+                            <input type="text" class="mat-input form-control" name="os" value="{{this.os}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>CPU</label>
+                            <input type="text" class="mat-input form-control" name="cpu" value="{{this.cpu}}">
+                        </div>
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>GPU</label>
+                            <input type="text" class="mat-input form-control" name="gpu" value="{{this.gpu}}">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>RAM</label>
+                            <input type="text" class="mat-input form-control" name="ram" value="{{this.ram}}">
+                        </div>
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>ROM</label>
+                            <input type="text" class="mat-input form-control" name="rom" value="{{this.rom}}">
+                        </div>
+                    </div>
+				</form>
+			</div>
+			<div class="modal-footer pmd-modal-action">
+				<button data-dismiss="modal" class="btn pmd-ripple-effect btn-primary btn-edit-form" type="submit">Thêm</button>
+				<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Huỷ</button>
+			</div>
+		</div>
+	</div>
+    {{/each}}
+</div>
+
+<!-- Create Form -->
+<div tabindex="-1" class="modal fade" id="create-form" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header pmd-modal-bordered">
+				<h2 class="pmd-card-title-text">Thêm sản phẩm</h2>
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+			</div>
+			<div class="modal-body">
+				<form id="post-form" method="POST" action="/admin/imac/create" class="form-horizontal">
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label>Tên thiết bị</label>
+						<input type="text" class="mat-input form-control" name="name" value="">
+                    </div>
+					<div class="form-group pmd-textfield pmd-textfield-floating-label">
+						<label class="control-label">Mô tả</label>
+						<textarea required class="form-control" name="description"></textarea>
+					</div>
+
+                    <div class="row">
+                        <div class="col-md-4 form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Giá</label>
+                            <input type="text" class="mat-input form-control" name="price" value="">
+                        </div>
+                        <div class="col-md-8 form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Đường dẫn</label>
+                            <input type="text" class="mat-input form-control" name="img" value="">
+                        </div>
+                    </div>
+					
+                    <div class="row">
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Màn hình</label>
+                            <input type="text" class="mat-input form-control" name="monitor" value="">
+                        </div>
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>Hệ điều hành</label>
+                            <input type="text" class="mat-input form-control" name="os" value="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>CPU</label>
+                            <input type="text" class="mat-input form-control" name="cpu" value="">
+                        </div>
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>GPU</label>
+                            <input type="text" class="mat-input form-control" name="gpu" value="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>RAM</label>
+                            <input type="text" class="mat-input form-control" name="ram" value="">
+                        </div>
+                        <div class="col form-group pmd-textfield pmd-textfield-floating-label">
+                            <label>ROM</label>
+                            <input type="text" class="mat-input form-control" name="rom" value="">
+                        </div>
+                    </div>
+				</form>
+			</div>
+			<div class="modal-footer pmd-modal-action">
+				<button id="btn-submit" data-dismiss="modal"  class="btn pmd-ripple-effect btn-primary" type="submit">Thêm</button>
+				<button data-dismiss="modal"  class="btn pmd-ripple-effect btn-default" type="button">Huỷ</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Confirm delete -->
+<div id="delete-product-confirm" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xoá sản phẩm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc chắn xoá sản phẩm này?</p>
+        {{!-- Hidden form to delete course --}}
+        <form name="delete-form" method="POST"></form>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete" type="button" class="btn btn-danger">Xoá bỏ</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
 </div>
