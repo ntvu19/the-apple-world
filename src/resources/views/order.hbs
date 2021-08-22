@@ -1,0 +1,17 @@
+<div class="card text-center mt-5 w-50" style="margin:auto">
+  <div class="card-header">
+    Nhập số điện thoại để tìm kiếm
+  </div>
+  <div class="card-body">
+    <input id="phonenumber" type="text" class="form-control my-4" placeholder="Nhập số điện thoại">
+    <buttontype="button" class="btn btn-primary" onclick="search()">
+        Tìm kiếm
+    </button>
+  </div>
+</div>
+
+<script>
+    function search() {
+        window.location.href = '/order/' + document.getElementById('phonenumber').value
+    }
+</script>

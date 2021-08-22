@@ -286,10 +286,22 @@
                             price: price
                         }
                         cart.push(info)
+                        let count = 0
+                        for (let j = 0; j < cart.length; j++) {
+                            if (cart[j]._id == id) {
+                                count++
+                            }
+                        }
+                        if (count > 1) {
+                            for (let k = 0; k < count - 1; k++) {
+                                cart.pop()
+                                alert('Sản phẩm đã có trong giỏ hàng')
+                            }
+                        }
                         localStorage['cart'] = JSON.stringify(cart)
                     }
                     else {
-                        alert('Không được vượt quá 10 sản phẩm')
+                        alert('Không được vượt quá 10 loại sản phẩm')
                     }
                 }
             }

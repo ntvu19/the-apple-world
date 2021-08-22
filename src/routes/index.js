@@ -6,6 +6,7 @@ const imacRouter = require('./imac.route')
 const applewatchRouter = require('./applewatch.route')
 const airpodRouter = require('./airpod.route')
 const adminRouter = require('./admin.route')
+const orderRouter = require('./order.route')
 
 const coursesRouter = require('./courses')
 const meRouter = require('./me')
@@ -15,6 +16,7 @@ function route(app) {
     app.use('/me', meRouter)
     app.use('/courses', coursesRouter)
 
+    app.use('/order', orderRouter)
     app.use('/admin', adminRouter)
     app.use('/airpod', airpodRouter)
     app.use('/apple-watch', applewatchRouter)

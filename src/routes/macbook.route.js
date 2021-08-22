@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const iphoneController = require('../app/controllers/macbook.controller')
+const macbookController = require('../app/controllers/macbook.controller')
 
-router.get('/', iphoneController.show)
+router.get('/', macbookController.show)
 
 module.exports = router
