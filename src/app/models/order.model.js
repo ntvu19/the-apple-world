@@ -9,7 +9,7 @@ const Order = new Schema({
     state: { type: String, require: true },
     product: [{
         img: String,
-        product_name: String,
+        name: String,
         quantity: String,
         price: String
     }]

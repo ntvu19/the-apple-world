@@ -24,7 +24,8 @@
             <button class="btn btn-outline-success my-2 my-lg-0" type="submit">Tìm kiếm</button>
         </form>
         <div class="button-group">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phonenumber-search" onclick="window.location.href='/order'">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#phonenumber-search">
+              {{!--  onclick="window.location.href='/order'" --}}
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"></path>
                     <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"></path>
@@ -115,19 +116,19 @@
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                     Khách hàng
                     <div class="form-outline">
-                      <input type="text" name="name" class="form-control" placeholder="Vui lòng nhập họ và tên"/>
+                      <input id="customer-name" type="text" name="name" class="form-control" placeholder="Vui lòng nhập họ và tên"/>
                     </div>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                     SĐT
                     <div class="form-outline">
-                      <input type="text" name="phone" class="form-control" placeholder="Nhập số điện thoại"/>
+                      <input id="customer-phone" type="text" name="phone" class="form-control" placeholder="Nhập số điện thoại"/>
                     </div>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                     Địa chỉ
                     <div class="form-outline">
-                      <input type="text" name="address" class="form-control" placeholder="Nhập địa chỉ giao hàng"/>
+                      <input id="customer-address" type="text" name="address" class="form-control" placeholder="Nhập địa chỉ giao hàng"/>
                     </div>
                   </li>
                   <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
@@ -150,7 +151,7 @@
                   </li>
                 </ul>
 
-                <button type="button" class="btn btn-primary btn-lg btn-block">
+                <button id="checkout" type="button" class="btn btn-primary btn-lg btn-block">
                   Đặt hàng
                 </button>
               </div>
@@ -162,7 +163,14 @@
 	</div>
 </div>
 
-
+{{!-- Hidden form for using POST method --}}
+<form name="form-checkout" method="POST" action="/order/create" hidden>
+  <input id="send-name" type="text" name="name">
+  <input id="send-phone" type="text" name="phone">
+  <input id="send-address" type="text" name="address">
+  <input id="send-state" type="text" name="state" value="Đơn hàng đang được vận chuyển">
+  <input id="send-product" type="text" name="product">
+</form>
 
 <div tabindex="-1" class="modal fade" id="phonenumber-search" style="display: none;" aria-hidden="true">
 	<div class="modal-dialog">
@@ -176,23 +184,12 @@
             <label class="control-label pmd-input-group-label">Nhập số điện thoại mua hàng</label>
             <div class="input-group">
               <div class="input-group-addon"><i class="material-icons md-dark pmd-sm">phone</i></div>
-              <input type="text" class="form-control">
-              <button id="search-history-button" type="button" class="btn pmd-btn-outline btn-primary mx-auto mt-4" data-toggle="modal" data-target="#history">Tiếp tục</button>
+              <input id="phonenumber" type="text" class="form-control">
+              <button id="search-history-button" type="button" class="btn pmd-btn-outline btn-primary mx-auto mt-4">Tiếp tục</button>
             </div>
           </div>
         </div>
       </div>
-		</div>
-	</div>
-</div>
-
-<div tabindex="-1" class="modal fade" id="history" style="display: none;" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-      <div class="modal-header justify-content-center">
-          <strong>Tra cứu thông tin đơn hàng</strong><br>
-      </div>
-      
 		</div>
 	</div>
 </div>
@@ -314,6 +311,58 @@
     date.setDate(date.getDate() + 2)
     document.getElementById('delivery-time').innerHTML +=
             " - " + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+  })
+
+  document.addEventListener('DOMContentLoaded', function search() {
+    $('#search-history-button').click(function() {
+      var phonenumber = document.getElementById('phonenumber').value
+      if (phonenumber != '') {
+        window.location.href = '/order/' + phonenumber
+      }
+      else {
+        alert('Vui lòng nhập số điện thoại')
+      }
+    })
+  })
+
+  document.addEventListener('DOMContentLoaded', function checkOut() {
+    var checkoutBtn = document.getElementById('checkout')
+    checkoutBtn.addEventListener('click', function() {
+      // Get all data
+      var customerName = document.getElementById('customer-name').value
+      var customerPhone = document.getElementById('customer-phone').value
+      var customerAddress = document.getElementById('customer-address').value
+
+      var cart = new Array()
+      if (localStorage.getItem('cart') !== null) {
+        cart = JSON.parse(localStorage['cart'])
+      }
+
+      let productArray = cart.map(item=>({
+        img: item.img,
+        name: item.name,
+        quantity: 0,
+        price: item.price
+      }))
+
+      var quantityList = document.getElementsByClassName('quantity')
+      for (let i = 0; i < quantityList.length; i++) {
+        productArray[i].quantity = quantityList[i].value
+        productArray[i].price *= productArray[i].quantity 
+      }
+      
+      var productList = JSON.stringify(productArray)
+      console.log(productList)
+
+      document.getElementById("send-name").setAttribute('value',customerName)
+      document.getElementById("send-phone").setAttribute('value',customerPhone)
+      document.getElementById("send-address").setAttribute('value',customerAddress)
+      document.getElementById("send-product").setAttribute('value',productList)
+      localStorage.clear()
+      if (cart.length > 0) {
+        document.forms['form-checkout'].submit()
+      }
+    })
   })
 
 </script>
